@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> It's Always Sunny Quotes APP</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <h1 data-position="header"> It's Always Sunny Quotes</h1>
+  <section data-position="add-quote">
+    <h2>Add IASIP quote</h2>
+    <form action="/quotes" method="POST">
+      <input type="text"  placeholder="name" name="name">
+      <input type="text"  placeholder="quote" name="quote">
+      <button type="submit">Submit</  button>
+    </form>
+  </section>
+  <section data-position="update-quote">
+    <div>
+      <h2>Frank takes over</h2>
+      <p>
+        Replace a Charlie quote with a quote by Frank
+      </p>
+      <button id="update-button">Replace  Charlie's quote</button>
+    </div>
+  </section>
+
+  <section data-position="delete-quote">
+    <div>
+      <h2>Frank gets thrown in the    trash</h2>
+      <p>
+        Delete a Frank quote. Does    nothing if there are no more   quotes from Frank.
+      </p>
+      <button id="delete-button">Delete   Frank's quote</button>
+    </div>
+    <div id="message"></div>
+  </section>
+
+  <section data-position="quotes">
+    <h2> Quotes </h2>
+    <ul class="quotes">
+      <!-- Loop through quotes -->
+      <% for(var i = 0; i < quotes.   length; i++) {%>
+        <li class="quote">
+          <!-- Output name from the   iterated quote object -->
+          <span><%= quotes[i].name %></   span>:
+          <!-- Output quote from the  iterated quote object -->
+          <span><%= quotes[i].quote %></  span>
+        </li>
+      <% } %>
+    </ul>
+  </section>
+  <script src="/main.js"></script>
+</body>
+</html>
